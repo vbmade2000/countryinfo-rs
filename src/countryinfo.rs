@@ -108,4 +108,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get region for the country specified in the constructor
+    pub fn get_region(&self) -> Option<String> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.region.clone();
+        }
+        return None;
+    }
 }
