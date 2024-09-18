@@ -151,4 +151,11 @@ mod tests {
         let calling_codes = country_info.get_calling_codes().unwrap();
         assert_eq!(calling_codes.len(), 1);
     }
+
+    #[test]
+    fn get_borders() {
+        let country_info = CountryInfo::new("India".to_string());
+        let borders = country_info.get_borders().unwrap();
+        assert_eq!(borders.len(), 8);
+    }
 }

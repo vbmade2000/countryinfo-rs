@@ -195,14 +195,21 @@ impl CountryInfo {
             return country.capital.clone();
         }
         return None;
-    }   
+    }
 
     // Get calling codes of the country specified in the constructor
     pub fn get_calling_codes(&self) -> Option<Vec<String>> {
-    if let Some(country) = self.countries.get(&self.country) {
-        return country.calling_codes.clone();
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.calling_codes.clone();
+        }
+        return None;
     }
-    return None;
-}   
 
+    // Get borders of the country specified in the constructor
+    pub fn get_borders(&self) -> Option<Vec<String>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.borders.clone();
+        }
+        return None;
+    }
 }
