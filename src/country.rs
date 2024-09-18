@@ -31,7 +31,8 @@ pub struct Country {
     pub region: Option<String>,
     pub subregion: Option<String>,
     pub timezones: Option<Vec<String>>,
-    pub tld: Option<Vec<String>>,
+    #[serde(rename = "tld")]
+    pub tlds: Option<Vec<String>>,
     pub translations: Option<HashMap<String, String>>,
     pub wiki: Option<String>,
 }

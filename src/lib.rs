@@ -43,4 +43,11 @@ mod tests {
         let translations_length = country_info.get_translations().unwrap().len();
         assert_eq!(translations_length > 1, true);
     }
+
+    #[test]
+    fn get_tlds() {
+        let country_info = CountryInfo::new("India".to_string());
+        let tlds_length = country_info.get_tlds().unwrap().len();
+        assert_eq!(tlds_length == 1, true);
+    }
 }
