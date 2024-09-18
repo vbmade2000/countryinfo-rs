@@ -144,4 +144,11 @@ mod tests {
         let capital = country_info.get_capital().unwrap();
         assert_eq!(capital, "New Delhi");
     }
+
+    #[test]
+    fn get_calling_codes() {
+        let country_info = CountryInfo::new("India".to_string());
+        let calling_codes = country_info.get_calling_codes().unwrap();
+        assert_eq!(calling_codes.len(), 1);
+    }
 }

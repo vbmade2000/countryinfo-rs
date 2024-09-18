@@ -197,5 +197,12 @@ impl CountryInfo {
         return None;
     }   
 
+    // Get calling codes of the country specified in the constructor
+    pub fn get_calling_codes(&self) -> Option<Vec<String>> {
+    if let Some(country) = self.countries.get(&self.country) {
+        return country.calling_codes.clone();
+    }
+    return None;
+}   
 
 }
