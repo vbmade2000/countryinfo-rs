@@ -92,4 +92,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get timezones for the country specified in the constructor
+    pub fn get_timezones(&self) -> Option<Vec<String>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.timezones.clone();
+        }
+        return None;
+    }
 }

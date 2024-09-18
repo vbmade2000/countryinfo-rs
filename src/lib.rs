@@ -50,4 +50,11 @@ mod tests {
         let tlds_length = country_info.get_tlds().unwrap().len();
         assert_eq!(tlds_length == 1, true);
     }
+
+    #[test]
+    fn get_timezones() {
+        let country_info = CountryInfo::new("India".to_string());
+        let timezones_length = country_info.get_tlds().unwrap().len();
+        assert_eq!(timezones_length == 1, true);
+    }
 }
