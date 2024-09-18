@@ -78,4 +78,11 @@ mod tests {
         let population = country_info.get_population().unwrap();
         assert_eq!(population, 1263930000);
     }
+
+    #[test]
+    fn get_native_name() {
+        let country_info = CountryInfo::new("India".to_string());
+        let native_name = country_info.get_native_name().unwrap();
+        assert_eq!(native_name, "भारत");
+    }
 }

@@ -124,4 +124,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get native name of the country specified in the constructor
+    pub fn get_native_name(&self) -> Option<String> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.native_name.clone();
+        }
+        return None;
+    }
 }
