@@ -132,4 +132,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get lat long of the country specified in the constructor
+    pub fn get_lat_long(&self) -> Option<Vec<f64>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.lat_lng.clone();
+        }
+        return None;
+    }
 }

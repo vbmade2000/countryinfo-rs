@@ -85,4 +85,11 @@ mod tests {
         let native_name = country_info.get_native_name().unwrap();
         assert_eq!(native_name, "भारत");
     }
+
+    #[test]
+    fn get_lat_long() {
+        let country_info = CountryInfo::new("India".to_string());
+        let lat_long = country_info.get_lat_long().unwrap();
+        assert_eq!(lat_long.len() == 2, true);
+    }
 }
