@@ -1,4 +1,4 @@
-use crate::country::Country;
+use crate::{country::Country, geo_json::GeoJSON};
 use std::{
     collections::HashMap,
     fs::File,
@@ -145,6 +145,14 @@ impl CountryInfo {
     pub fn get_languages(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.languages.clone();
+        }
+        return None;
+    }
+
+    // Get geo-json of the country specified in the constructor
+    pub fn get_geo_json(&self) -> Option<GeoJSON> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.geo_json.clone();
         }
         return None;
     }

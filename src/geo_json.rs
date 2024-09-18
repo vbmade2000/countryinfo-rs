@@ -1,18 +1,18 @@
 use serde_derive::Deserialize;
 
-#[derive(Deserialize, Debug)]
+#[derive(Clone, Deserialize, Debug)]
 pub struct Geometry {
     #[serde(rename = "type")]
     pub _type: Option<String>,
     pub coordinates: Option<Vec<Vec<Vec<f64>>>>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Clone, Deserialize, Debug)]
 pub struct Properties {
     pub name: String,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Clone, Deserialize, Debug)]
 pub struct Feature {
     #[serde(rename = "type")]
     pub _type: String,
@@ -21,7 +21,7 @@ pub struct Feature {
     pub geometry: Option<Geometry>,
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Clone, Deserialize, Debug)]
 pub struct GeoJSON {
     #[serde(rename = "type")]
     pub _type: Option<String>,

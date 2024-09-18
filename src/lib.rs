@@ -4,7 +4,10 @@ pub mod geo_json;
 
 #[cfg(test)]
 mod tests {
+    use std::any::{Any, TypeId};
+
     use countryinfo::CountryInfo;
+    use geo_json::GeoJSON;
 
     use super::*;
 
@@ -98,5 +101,12 @@ mod tests {
         let country_info = CountryInfo::new("India".to_string());
         let languages = country_info.get_languages().unwrap();
         assert_eq!(languages.len() == 2, true);
+    }
+
+    #[test]
+    fn get_geo_json() {
+        let country_info = CountryInfo::new("India".to_string());
+        let geo_json = country_info.get_geo_json().unwrap();
+        assert_eq!(TypeId::of::<GeoJSON>() == geo_json.type_id(), true);
     }
 }
