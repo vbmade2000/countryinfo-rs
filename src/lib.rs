@@ -22,4 +22,11 @@ mod tests {
         let provinces_length = country_info.get_provinces().unwrap().len();
         assert_eq!(provinces_length, 36);
     }
+
+    #[test]
+    fn get_alt_spellings() {
+        let country_info = CountryInfo::new("India".to_string());
+        let alt_spellings_length = country_info.get_alt_spellings().unwrap().len();
+        assert_eq!(alt_spellings_length, 4);
+    }
 }

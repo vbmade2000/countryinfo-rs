@@ -62,4 +62,12 @@ impl CountryInfo {
         }
         return None
     }
+
+     // Get the list of alternative spellings for the country specified in the constructor
+     pub fn get_alt_spellings(&self) -> Option<Vec<String>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.alt_spellings.clone();
+        }
+        return None
+    }
 }
