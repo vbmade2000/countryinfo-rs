@@ -1,7 +1,9 @@
+//! Contains the `Country` struct which is used to represent a country.
 use crate::geo_json::GeoJSON;
 use serde_derive::Deserialize;
 use std::collections::HashMap;
 
+/// A struct representing a country.
 #[derive(Clone, Deserialize, Debug)]
 pub struct Country {
     pub name: String,

@@ -1,3 +1,25 @@
+//! A crate to get country information like country name, capital, area, population, etc. Inspired from https://pypi.org/project/countryinfo/.
+//!
+//! # Usage
+//! Use a [`countryinfo::CountryInfo`] struct to get information about a country.
+//! ## Instantiate the struct
+//! ```rust,ignore
+//! use countryinfo_rs::CountryInfo;
+//! let country_info = CountryInfo::new("India".to_string());
+//! ```
+//! ## Get the information
+//! ```rust,ignore
+//! let capital = country_info.get_capital().unwrap();
+//! println!("Capital: {}", capital);   // Capital: New Delhi
+//! ```
+//! ## Get all the information
+//! ```rust,ignore
+//! let country = country_info.get_all_info().unwrap();
+//! println!("{:?}", country);
+//! ```
+//! In the same way as shown above, you can get other information like area, population, etc.
+//! Checkout [Examples](https://github.com/vbmade2000/countryinfo-rs/tree/main/examples).
+
 pub mod country;
 pub mod countryinfo;
 pub mod geo_json;

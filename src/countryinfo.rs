@@ -1,3 +1,4 @@
+//! Contains the CountryInfo struct which is used to get information about a country.
 use crate::{country::Country, geo_json::GeoJSON};
 use std::{
     collections::HashMap,
@@ -6,14 +7,17 @@ use std::{
     path::PathBuf,
 };
 
+// Path to the data directory
 const PATH: &str = "./data/";
 const FILE_EXTENSION: &str = "json";
 
+/// A struct to get country information.
 pub struct CountryInfo {
     pub country: String,
     pub countries: HashMap<String, Country>,
 }
 
+// Reads a file and returns the Country struct
 fn read_country_data_from_file(path: &PathBuf) -> Result<Country, Error> {
     let file = File::open(&path)?; // .expect(format!("Error in opening {}", &filename).as_str());
     let buf_reader = BufReader::new(file);
@@ -53,7 +57,7 @@ impl CountryInfo {
 }
 
 impl CountryInfo {
-    // Get the list of countries for the country specified in the constructor
+    /// Get the list of countries for the country specified in the constructor
     pub fn get_provinces(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.provinces.clone();
@@ -61,7 +65,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get the list of alternative spellings for the country specified in the constructor
+    /// Get the list of alternative spellings for the country specified in the constructor
     pub fn get_alt_spellings(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.alt_spellings.clone();
@@ -69,7 +73,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get the wikipedia link for the country specified in the constructor
+    /// Get the wikipedia link for the country specified in the constructor
     pub fn get_wiki(&self) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.wiki.clone();
@@ -77,7 +81,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get the list of translations for the country specified in the constructor
+    /// Get the list of translations for the country specified in the constructor
     pub fn get_translations(&self) -> Option<HashMap<String, String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.translations.clone();
@@ -85,7 +89,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get the top level domains for the country specified in the constructor
+    /// Get the top level domains for the country specified in the constructor
     pub fn get_tlds(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.tlds.clone();
@@ -93,7 +97,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get timezones for the country specified in the constructor
+    /// Get timezones for the country specified in the constructor
     pub fn get_timezones(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.timezones.clone();
@@ -101,7 +105,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get subregion for the country specified in the constructor
+    /// Get subregion for the country specified in the constructor
     pub fn get_subregion(&self) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.subregion.clone();
@@ -109,7 +113,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get region for the country specified in the constructor
+    /// Get region for the country specified in the constructor
     pub fn get_region(&self) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.region.clone();
@@ -117,7 +121,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get population of the country specified in the constructor
+    /// Get population of the country specified in the constructor
     pub fn get_population(&self) -> Option<u64> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.population;
@@ -125,7 +129,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get native name of the country specified in the constructor
+    /// Get native name of the country specified in the constructor
     pub fn get_native_name(&self) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.native_name.clone();
@@ -133,7 +137,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get lat long of the country specified in the constructor
+    /// Get lat long of the country specified in the constructor
     pub fn get_lat_long(&self) -> Option<Vec<f64>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.lat_lng.clone();
@@ -141,7 +145,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get languages of the country specified in the constructor
+    /// Get languages of the country specified in the constructor
     pub fn get_languages(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.languages.clone();
@@ -149,7 +153,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get geo-json of the country specified in the constructor
+    /// Get geo-json of the country specified in the constructor
     pub fn get_geo_json(&self) -> Option<GeoJSON> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.geo_json.clone();
@@ -157,7 +161,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get SVG link of flag of the country specified in the constructor
+    /// Get SVG link of flag of the country specified in the constructor
     pub fn get_flag(&self) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.flag.clone();
@@ -165,7 +169,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get demonym of the country specified in the constructor
+    /// Get demonym of the country specified in the constructor
     pub fn get_demonym(&self) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.demonym.clone();
@@ -173,7 +177,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get currencies of the country specified in the constructor
+    /// Get currencies of the country specified in the constructor
     pub fn get_currencies(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.currencies.clone();
@@ -181,7 +185,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get latitude and longitude of the capital of the country specified in the constructor
+    /// Get latitude and longitude of the capital of the country specified in the constructor
     pub fn get_capital_lat_long(&self) -> Option<Vec<f64>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.capital_latlng.clone();
@@ -189,7 +193,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get capital of the country specified in the constructor
+    /// Get capital of the country specified in the constructor
     pub fn get_capital(&self) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.capital.clone();
@@ -197,7 +201,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get calling codes of the country specified in the constructor
+    /// Get calling codes of the country specified in the constructor
     pub fn get_calling_codes(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.calling_codes.clone();
@@ -205,7 +209,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get borders of the country specified in the constructor
+    /// Get borders of the country specified in the constructor
     pub fn get_borders(&self) -> Option<Vec<String>> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.borders.clone();
@@ -213,7 +217,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get area of the country specified in the constructor
+    /// Get area of the country specified in the constructor
     pub fn get_area(&self) -> Option<u64> {
         if let Some(country) = self.countries.get(&self.country) {
             return country.area.clone();
@@ -221,7 +225,7 @@ impl CountryInfo {
         return None;
     }
 
-    // Get ISO codes of the country specified in the constructor
+    /// Get ISO codes of the country specified in the constructor
     pub fn get_iso_codes(&self, alpha: String) -> Option<String> {
         if let Some(country) = self.countries.get(&self.country) {
             let iso_codes = country.iso.clone().unwrap();
@@ -234,12 +238,11 @@ impl CountryInfo {
         return None;
     }
 
-    // Get all the info of the country specified in the constructor
+    /// Get all the info of the country specified in the constructor
     pub fn get_all_info(&self) -> Option<Country> {
         if let Some(country) = self.countries.get(&self.country) {
             return Some(country.clone());
         }
         return None;
     }
-
 }
