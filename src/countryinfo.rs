@@ -220,4 +220,17 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get ISO codes of the country specified in the constructor
+    pub fn get_iso_codes(&self, alpha: String) -> Option<String> {
+        if let Some(country) = self.countries.get(&self.country) {
+            let iso_codes = country.iso.clone().unwrap();
+            if alpha == "2" {
+                return iso_codes.get("alpha2").map(|v| v.to_string());
+            } else if alpha == "3" {
+                return iso_codes.get("alpha3").map(|v| v.to_string());
+            }
+        }
+        return None;
+    }
 }

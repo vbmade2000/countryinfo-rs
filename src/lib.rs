@@ -165,4 +165,13 @@ mod tests {
         let area = country_info.get_area().unwrap();
         assert_eq!(area, 3287590);
     }
+
+    #[test]
+    fn get_iso_codes() {
+        let country_info = CountryInfo::new("India".to_string());
+        let alpha2_iso_code = country_info.get_iso_codes("2".to_string()).unwrap();
+        let alpha3_iso_code = country_info.get_iso_codes("3".to_string()).unwrap();
+        assert_eq!(alpha2_iso_code, "IN".to_string());
+        assert_eq!(alpha3_iso_code, "IND".to_string());
+    }
 }
