@@ -130,4 +130,11 @@ mod tests {
         let currencies = country_info.get_currencies().unwrap();
         assert_eq!(currencies.len(), 1);
     }
+
+    #[test]
+    fn get_capital_lat_long() {
+        let country_info = CountryInfo::new("India".to_string());
+        let capital_lat_long = country_info.get_capital_lat_long().unwrap();
+        assert_eq!(capital_lat_long.len() == 2, true);
+    }
 }

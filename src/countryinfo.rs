@@ -180,4 +180,14 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get latitude and longitude of the capital of the country specified in the constructor
+    pub fn get_capital_lat_long(&self) -> Option<Vec<f64>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.capital_latlng.clone();
+        }
+        return None;
+    }   
+
+
 }
