@@ -71,4 +71,11 @@ mod tests {
         let subregion = country_info.get_region().unwrap();
         assert_eq!(subregion, "Asia".to_string());
     }
+
+    #[test]
+    fn get_population() {
+        let country_info = CountryInfo::new("India".to_string());
+        let population = country_info.get_population().unwrap();
+        assert_eq!(population, 1263930000);
+    }
 }

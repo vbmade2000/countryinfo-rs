@@ -116,4 +116,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get population of the country specified in the constructor
+    pub fn get_population(&self) -> Option<u64> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.population;
+        }
+        return None;
+    }
 }
