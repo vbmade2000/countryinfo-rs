@@ -187,6 +187,14 @@ impl CountryInfo {
             return country.capital_latlng.clone();
         }
         return None;
+    }
+
+    // Get capital of the country specified in the constructor
+    pub fn get_capital(&self) -> Option<String> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.capital.clone();
+        }
+        return None;
     }   
 
 

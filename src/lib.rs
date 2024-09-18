@@ -137,4 +137,11 @@ mod tests {
         let capital_lat_long = country_info.get_capital_lat_long().unwrap();
         assert_eq!(capital_lat_long.len() == 2, true);
     }
+
+    #[test]
+    fn get_capital() {
+        let country_info = CountryInfo::new("India".to_string());
+        let capital = country_info.get_capital().unwrap();
+        assert_eq!(capital, "New Delhi");
+    }
 }
