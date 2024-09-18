@@ -123,4 +123,11 @@ mod tests {
         let demonym = country_info.get_demonym().unwrap();
         assert_eq!(demonym, "Indian".to_string());
     }
+
+    #[test]
+    fn get_currencies() {
+        let country_info = CountryInfo::new("India".to_string());
+        let currencies = country_info.get_currencies().unwrap();
+        assert_eq!(currencies.len(), 1);
+    }
 }

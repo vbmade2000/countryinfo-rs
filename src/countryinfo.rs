@@ -172,4 +172,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get currencies of the country specified in the constructor
+    pub fn get_currencies(&self) -> Option<Vec<String>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.currencies.clone();
+        }
+        return None;
+    }
 }
