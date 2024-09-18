@@ -156,4 +156,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get SVG link of flag of the country specified in the constructor
+    pub fn get_flag(&self) -> Option<String> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.flag.clone();
+        }
+        return None;
+    }
 }

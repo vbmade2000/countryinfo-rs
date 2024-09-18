@@ -109,4 +109,11 @@ mod tests {
         let geo_json = country_info.get_geo_json().unwrap();
         assert_eq!(TypeId::of::<GeoJSON>() == geo_json.type_id(), true);
     }
+
+    #[test]
+    fn get_flag() {
+        let country_info = CountryInfo::new("India".to_string());
+        let flag_link = country_info.get_flag().unwrap();
+        assert_eq!(flag_link, "".to_string());
+    }
 }
