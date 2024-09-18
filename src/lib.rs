@@ -158,4 +158,11 @@ mod tests {
         let borders = country_info.get_borders().unwrap();
         assert_eq!(borders.len(), 8);
     }
+
+    #[test]
+    fn get_area() {
+        let country_info = CountryInfo::new("India".to_string());
+        let area = country_info.get_area().unwrap();
+        assert_eq!(area, 3287590);
+    }
 }

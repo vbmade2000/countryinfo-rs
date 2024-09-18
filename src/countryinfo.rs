@@ -212,4 +212,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get area of the country specified in the constructor
+    pub fn get_area(&self) -> Option<u64> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.area.clone();
+        }
+        return None;
+    }
 }
