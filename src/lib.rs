@@ -116,4 +116,11 @@ mod tests {
         let flag_link = country_info.get_flag().unwrap();
         assert_eq!(flag_link, "".to_string());
     }
+
+    #[test]
+    fn get_demonym() {
+        let country_info = CountryInfo::new("India".to_string());
+        let demonym = country_info.get_demonym().unwrap();
+        assert_eq!(demonym, "Indian".to_string());
+    }
 }

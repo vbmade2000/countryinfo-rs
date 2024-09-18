@@ -164,4 +164,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get demonym of the country specified in the constructor
+    pub fn get_demonym(&self) -> Option<String> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.demonym.clone();
+        }
+        return None;
+    }
 }
