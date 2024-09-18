@@ -36,4 +36,11 @@ mod tests {
         let wiki_link = country_info.get_wiki().unwrap();
         assert_eq!(wiki_link, "http://en.wikipedia.org/wiki/india".to_string());
     }
+
+    #[test]
+    fn get_translations() {
+        let country_info = CountryInfo::new("India".to_string());
+        let translations_length = country_info.get_translations().unwrap().len();
+        assert_eq!(translations_length > 1, true);
+    }
 }
