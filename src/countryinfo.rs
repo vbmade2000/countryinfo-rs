@@ -7,6 +7,7 @@ use std::{
 };
 
 const PATH: &str = "./data/";
+const FILE_EXTENSION: &str = "json";
 
 pub struct CountryInfo {
     pub country: String,
@@ -35,8 +36,7 @@ impl CountryInfo {
             if metadata.is_file() {
                 let path = entry.path();
                 if let Some(extension) = path.extension() {
-                    if extension == "json" {
-                        // let filename = path.file_name().unwrap().to_str().unwrap();
+                    if extension == FILE_EXTENSION {
                         let country = read_country_data_from_file(&path);
                         if let Ok(country) = country {
                             countries.insert(country.name.to_string().to_lowercase(), country);
@@ -49,5 +49,17 @@ impl CountryInfo {
         }
 
         CountryInfo { country, countries }
+    }
+}
+
+
+impl CountryInfo {
+
+    // Get the list of countries for the country specified in the constructor
+    pub fn get_provinces(&self) -> Option<Vec<String>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.provinces.clone();
+        }
+        return None
     }
 }

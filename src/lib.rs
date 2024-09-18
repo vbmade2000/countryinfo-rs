@@ -15,4 +15,11 @@ mod tests {
         let countries_length = country_info.countries.len();
         assert_eq!(countries_length > 1, true);
     }
+
+    #[test]
+    fn get_countries() {
+        let country_info = CountryInfo::new("India".to_string());
+        let provinces_length = country_info.get_provinces().unwrap().len();
+        assert_eq!(provinces_length, 36);
+    }
 }
