@@ -100,4 +100,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get subregion for the country specified in the constructor
+    pub fn get_subregion(&self) -> Option<String> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.subregion.clone();
+        }
+        return None;
+    }
 }

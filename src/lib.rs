@@ -57,4 +57,11 @@ mod tests {
         let timezones_length = country_info.get_tlds().unwrap().len();
         assert_eq!(timezones_length == 1, true);
     }
+
+    #[test]
+    fn get_subregion() {
+        let country_info = CountryInfo::new("India".to_string());
+        let subregion = country_info.get_subregion().unwrap();
+        assert_eq!(subregion, "Southern Asia".to_string());
+    }
 }
