@@ -6,6 +6,7 @@ pub mod geo_json;
 mod tests {
     use std::any::{Any, TypeId};
 
+    use country::Country;
     use countryinfo::CountryInfo;
     use geo_json::GeoJSON;
 
@@ -173,5 +174,12 @@ mod tests {
         let alpha3_iso_code = country_info.get_iso_codes("3".to_string()).unwrap();
         assert_eq!(alpha2_iso_code, "IN".to_string());
         assert_eq!(alpha3_iso_code, "IND".to_string());
+    }
+
+    #[test]
+    fn get_all_info() {
+        let country_info = CountryInfo::new("India".to_string());
+        let country = country_info.get_all_info().unwrap();
+        assert_eq!(TypeId::of::<Country>() == country.type_id(), true);
     }
 }

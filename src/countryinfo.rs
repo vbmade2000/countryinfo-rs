@@ -233,4 +233,13 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get all the info of the country specified in the constructor
+    pub fn get_all_info(&self) -> Option<Country> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return Some(country.clone());
+        }
+        return None;
+    }
+
 }

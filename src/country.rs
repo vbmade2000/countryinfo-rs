@@ -2,7 +2,7 @@ use crate::geo_json::GeoJSON;
 use serde_derive::Deserialize;
 use std::collections::HashMap;
 
-#[derive(Deserialize, Debug)]
+#[derive(Clone, Deserialize, Debug)]
 pub struct Country {
     pub name: String,
     #[serde(rename = "altSpellings")]
