@@ -92,4 +92,11 @@ mod tests {
         let lat_long = country_info.get_lat_long().unwrap();
         assert_eq!(lat_long.len() == 2, true);
     }
+
+    #[test]
+    fn get_languages() {
+        let country_info = CountryInfo::new("India".to_string());
+        let languages = country_info.get_languages().unwrap();
+        assert_eq!(languages.len() == 2, true);
+    }
 }

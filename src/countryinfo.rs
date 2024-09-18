@@ -140,4 +140,12 @@ impl CountryInfo {
         }
         return None;
     }
+
+    // Get languages of the country specified in the constructor
+    pub fn get_languages(&self) -> Option<Vec<String>> {
+        if let Some(country) = self.countries.get(&self.country) {
+            return country.languages.clone();
+        }
+        return None;
+    }
 }
