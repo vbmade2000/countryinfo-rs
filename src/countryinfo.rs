@@ -70,4 +70,12 @@ impl CountryInfo {
         }
         return None
     }
+
+    // Get the wikipedia link for the country specified in the constructor
+    pub fn get_wiki(&self) -> Option<String> {
+    if let Some(country) = self.countries.get(&self.country) {
+        return country.wiki.clone();
+    }
+    return None
+}
 }

@@ -29,4 +29,11 @@ mod tests {
         let alt_spellings_length = country_info.get_alt_spellings().unwrap().len();
         assert_eq!(alt_spellings_length, 4);
     }
+
+    #[test]
+    fn get_wiki() {
+        let country_info = CountryInfo::new("India".to_string());
+        let wiki_link = country_info.get_wiki().unwrap();
+        assert_eq!(wiki_link, "http://en.wikipedia.org/wiki/india".to_string());
+    }
 }
